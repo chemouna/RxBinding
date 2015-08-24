@@ -10,11 +10,11 @@ import rx.Subscriber;
 
 import static com.jakewharton.rxbinding.internal.Preconditions.checkUiThread;
 
-final class AdapterDataChangeOnSubscribe<T extends RecyclerView.Adapter>
+final class RecyclerAdapterDataChangeOnSubscribe<T extends RecyclerView.Adapter>
         implements Observable.OnSubscribe<T> {
     private final T adapter;
 
-    public AdapterDataChangeOnSubscribe(T adapter) {
+    public RecyclerAdapterDataChangeOnSubscribe(T adapter) {
         this.adapter = adapter;
     }
 
@@ -29,8 +29,6 @@ final class AdapterDataChangeOnSubscribe<T extends RecyclerView.Adapter>
                 }
             }
         };
-        adapter.registerAdapterDataObserver(observer);
-
         adapter.registerAdapterDataObserver(observer);
 
         subscriber.add(new MainThreadSubscription() {
